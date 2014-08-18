@@ -3,9 +3,6 @@ package com.sopovs.moradanen.envers.domain;
 import java.util.Collection;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -16,35 +13,21 @@ import org.joda.time.LocalDate;
 @Entity
 @Audited
 @Table(name = "EDITION")
-public class Edition {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+public class Edition extends AbstractEntity {
 
 	@ManyToOne
 	private Book book;
 
 	// There can be title variations between different editions
 	private String title;
-	//There can also be variations
+	// There can also be variations
 	@ManyToMany
 	private Collection<Person> authors;
 
 	@ManyToOne
 	private Person editor;
-	
-	
 
 	private LocalDate publishDate;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public Book getBook() {
 		return book;

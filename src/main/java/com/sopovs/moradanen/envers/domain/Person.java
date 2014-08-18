@@ -1,9 +1,6 @@
 package com.sopovs.moradanen.envers.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
@@ -11,22 +8,24 @@ import org.hibernate.envers.Audited;
 @Entity
 @Audited
 @Table(name = "PERSON")
-public class Person {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+public class Person extends AbstractEntity {
 
 	private String firstName;
 	private String secondName;
 	private String lastName;
 
-	public Long getId() {
-		return id;
+	public Person() {
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Person(String firstName, String secondName, String lastName) {
+		this.firstName = firstName;
+		this.secondName = secondName;
+		this.lastName = lastName;
+	}
+
+	public Person(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public String getFirstName() {
