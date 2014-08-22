@@ -1,4 +1,4 @@
-package com.sopovs.moradanen.envers;
+package com.sopovs.moradanen.bouquinist;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk xmlns="http://www.zkoss.org/2005/zul"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 
-	<window id="main" title="Envers testing playground"
-	        apply="com.sopovs.moradanen.envers.EnvertsTestComposer"
-	        maximizable="true" maximized="true"
-	        closable="true" position="left,top"
-	        border="normal"
-	        vflex="true" hflex="true"
-	        contentStyle="background:lightgray"
-	        style="width:750px;">
+	<window id="main" 
+		apply="com.sopovs.moradanen.bouquinist.MainBouquinistComposer"
+		position="left,top" border="normal" vflex="true" hflex="true"
+		contentStyle="background:lightgray" style="width:750px;">
+		<menubar>
+			<menu label="Books">
+				<menupopup>
+					<menuitem id="newbook" label="New" />
+					<menuitem id="listbooks" label="List" />
+				</menupopup>
+			</menu>
+			<menu label="Authors">
+				<menupopup>
+					<menuitem id="newauthor" label="New" />
+				</menupopup>
+			</menu>
+		</menubar>
 		<label id="label" />
 	</window>
 

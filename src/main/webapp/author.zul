@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+
+	<vlayout apply="com.sopovs.moradanen.bouquinist.AuthorComposer">
+		<label>First name</label>
+		<labelid =" firstname " />
+		<label id="secondnameLabel">Second name</label>
+		<labelid =" secondname " />
+		<label>Last name</label>
+		<label id="lastname" />
+	</vlayout>
+
+
+
+
+</zk>

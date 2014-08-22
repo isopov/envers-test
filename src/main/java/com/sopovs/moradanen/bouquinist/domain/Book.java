@@ -1,4 +1,4 @@
-package com.sopovs.moradanen.envers.domain;
+package com.sopovs.moradanen.bouquinist.domain;
 
 import java.util.List;
 

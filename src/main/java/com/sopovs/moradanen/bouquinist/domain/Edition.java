@@ -1,4 +1,4 @@
-package com.sopovs.moradanen.envers.domain;
+package com.sopovs.moradanen.bouquinist.domain;
 
 import java.util.Collection;
 
@@ -59,6 +59,14 @@ public class Edition extends AbstractEntity {
 
 	public void setPublishDate(LocalDate publishDate) {
 		this.publishDate = publishDate;
+	}
+
+	public Collection<Person> getAuthors() {
+		return authors;
+	}
+
+	public void setAuthors(Collection<Person> authors) {
+		this.authors = authors;
 	}
 
 }

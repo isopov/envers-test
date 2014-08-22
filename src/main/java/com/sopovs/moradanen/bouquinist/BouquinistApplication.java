@@ -1,4 +1,4 @@
-package com.sopovs.moradanen.envers;
+package com.sopovs.moradanen.bouquinist;
 
 import javax.persistence.EntityManagerFactory;
 
@@ -21,7 +21,7 @@ import org.zkoss.zk.ui.http.HttpSessionListener;
 @EnableAutoConfiguration
 @ComponentScan
 @EnableTransactionManagement
-public class EnversTestApplication {
+public class BouquinistApplication {
 
 	@Bean
 	public HttpSessionListener zkossSessionListener() {
@@ -30,16 +30,14 @@ public class EnversTestApplication {
 
 	@Bean
 	public ServletRegistrationBean zkLoader() {
-		ServletRegistrationBean zkLoader = new ServletRegistrationBean(
-				new DHtmlLayoutServlet(), "*.zul", "*.zhtml");
+		ServletRegistrationBean zkLoader = new ServletRegistrationBean(new DHtmlLayoutServlet(), "*.zul", "*.zhtml");
 		zkLoader.getInitParameters().put("update-uri", "/zkau");
 		return zkLoader;
 	}
 
 	@Bean
 	public ServletRegistrationBean auEngine() {
-		ServletRegistrationBean auEngine = new ServletRegistrationBean(
-				new DHtmlUpdateServlet(), "/zkau/*");
+		ServletRegistrationBean auEngine = new ServletRegistrationBean(new DHtmlUpdateServlet(), "/zkau/*");
 		return auEngine;
 	}
 
@@ -57,7 +55,7 @@ public class EnversTestApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(EnversTestApplication.class, args);
+		SpringApplication.run(BouquinistApplication.class, args);
 	}
 
 }

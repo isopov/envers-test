@@ -5,38 +5,18 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-
 import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
-import org.springframework.transaction.support.TransactionTemplate;
 
-import com.sopovs.moradanen.envers.domain.Person;
-import com.sopovs.moradanen.envers.repositories.PersonRepository;
+import com.sopovs.moradanen.bouquinist.domain.Person;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = EnversTestApplication.class)
-public class PersonRepositoryTest {
-
-	@Autowired
-	private PersonRepository personRepository;
-
-	@PersistenceContext
-	private EntityManager em;
-
-	@Autowired
-	private TransactionTemplate transactionTemplate;
+public class PersonRepositoryTest extends AbstractTest {
 
 	@Test
-	public void testSimple() {
+	public void testAudit() {
 
 		final Person person = new Person("Jon", "Smith");
 		personRepository.save(person);

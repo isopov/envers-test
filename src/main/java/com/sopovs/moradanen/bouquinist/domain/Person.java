@@ -1,9 +1,13 @@
-package com.sopovs.moradanen.envers.domain;
+package com.sopovs.moradanen.bouquinist.domain;
+
+import java.util.Comparator;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
+
+import com.google.common.collect.ComparisonChain;
 
 @Entity
 @Audited
@@ -51,5 +55,16 @@ public class Person extends AbstractEntity {
 	public void setSecondName(String secondName) {
 		this.secondName = secondName;
 	}
+
+	public static final Comparator<Person> BY_FIRSTNAME = new Comparator<Person>() {
+
+		@Override
+		public int compare(Person o1, Person o2) {
+			return ComparisonChain.start()
+					.compare(o1.firstName, o2.firstName)
+					.compare(o1.getId(), o2.getId())
+					.result();
+		}
+	};
 
 }
