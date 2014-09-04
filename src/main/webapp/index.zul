@@ -17,10 +17,11 @@
 			<menu label="Authors">
 				<menupopup>
 					<menuitem id="newauthor" label="New" />
+					<menuitem id="authorlist" label="List" />
 				</menupopup>
 			</menu>
 		</menubar>
-		<label id="label" />
+		<window id="contentWindow" />
 	</window>
 
 </zk>

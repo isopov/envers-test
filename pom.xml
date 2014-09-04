@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<guava.version>18.0-rc2</guava.version>
+		<guava.version>18.0</guava.version>
 		<spring.version>4.1.0.RC2</spring.version>
 		<spring.data.version>1.7.0.RC1</spring.data.version>
 		<aspectj.version>1.8.2</aspectj.version>

@@ -7,13 +7,15 @@ import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.Label;
 
-import com.sopovs.moradanen.bouquinist.domain.Person;
-import com.sopovs.moradanen.bouquinist.repositories.PersonRepository;
+import com.sopovs.moradanen.bouquinist.dto.PersonDetailsDTO;
+import com.sopovs.moradanen.bouquinist.services.BouquinistService;
 
 public class PersonComposer extends GenericForwardComposer<Component> {
 	private static final long serialVersionUID = 1L;
 
-	private PersonRepository personRepository;
+	public static final String PERSON_ID = "person-id";
+
+	private BouquinistService bouquinistService;
 
 	@Wire
 	private Label firstname;
@@ -28,9 +30,9 @@ public class PersonComposer extends GenericForwardComposer<Component> {
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
 
-		personRepository = SpringUtil.getApplicationContext().getBean(PersonRepository.class);
-		Long personId = (Long) Executions.getCurrent().getArg().get("person-id");
-		Person person = personRepository.getOne(personId);
+		bouquinistService = SpringUtil.getApplicationContext().getBean(BouquinistService.class);
+		Long personId = (Long) Executions.getCurrent().getArg().get(PERSON_ID);
+		PersonDetailsDTO person = bouquinistService.getPersonDetails(personId);
 
 		firstname.setValue(person.getFirstName());
 		if (person.getSecondName() == null) {

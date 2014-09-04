@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
+import org.springframework.data.domain.Sort;
 
 import com.google.common.collect.ComparisonChain;
 
@@ -13,6 +14,8 @@ import com.google.common.collect.ComparisonChain;
 @Audited
 @Table(name = "PERSON")
 public class Person extends AbstractEntity {
+
+	public static Sort DEFAULT_SORT = new Sort("lastName", "firstName", "secondName", "id");
 
 	private String firstName;
 	private String secondName;
@@ -57,7 +60,6 @@ public class Person extends AbstractEntity {
 	}
 
 	public static final Comparator<Person> BY_FIRSTNAME = new Comparator<Person>() {
-
 		@Override
 		public int compare(Person o1, Person o2) {
 			return ComparisonChain.start()
