@@ -4,10 +4,7 @@ import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
-import org.zkoss.zkplus.spring.SpringUtil;
 import org.zkoss.zul.Window;
-
-import com.sopovs.moradanen.bouquinist.repositories.PersonRepository;
 
 public class MainBouquinistComposer extends GenericForwardComposer<Component> {
 	private static final long serialVersionUID = 1L;
@@ -15,11 +12,8 @@ public class MainBouquinistComposer extends GenericForwardComposer<Component> {
 	@Wire
 	private Window contentWindow;
 
-	private PersonRepository personRepository;
-
 	@Override
 	public void doAfterCompose(Component comp) throws Exception {
-		personRepository = SpringUtil.getApplicationContext().getBean(PersonRepository.class);
 		super.doAfterCompose(comp);
 		contentWindow.setTitle("Authors");
 		contentWindow.appendChild(Executions.createComponents("/personList.zul", comp, null));

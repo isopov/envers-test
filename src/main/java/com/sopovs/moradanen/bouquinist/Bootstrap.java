@@ -7,6 +7,7 @@ import java.util.TreeSet;
 import org.joda.time.LocalDate;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import com.sopovs.moradanen.bouquinist.domain.Book;
@@ -20,6 +21,7 @@ import com.sopovs.moradanen.bouquinist.repositories.PersonRepository;
 import com.sopovs.moradanen.bouquinist.services.BouquinistService;
 
 @Component
+@Profile("bootstrap")
 public class Bootstrap implements InitializingBean {
 
 	private static final int NUMBER_OF_PERSONS = 150;

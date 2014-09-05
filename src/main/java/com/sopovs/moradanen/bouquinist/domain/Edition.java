@@ -1,5 +1,7 @@
 package com.sopovs.moradanen.bouquinist.domain;
 
+import static java.util.Arrays.asList;
+
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -26,6 +28,29 @@ public class Edition extends AbstractEntity {
 
 	@ManyToOne
 	private Person editor;
+
+	public Edition() {
+	}
+
+	public Edition(Book book, Person editor, Collection<Person> authors) {
+		this.book = book;
+		this.editor = editor;
+		this.authors = authors;
+	}
+
+	public Edition(Book book, Person editor, Person author) {
+		this.book = book;
+		this.editor = editor;
+		this.authors = asList(author);
+	}
+
+	public Edition(Book book, String title, Collection<Person> authors, Person editor, LocalDate publishDate) {
+		this.book = book;
+		this.title = title;
+		this.authors = authors;
+		this.editor = editor;
+		this.publishDate = publishDate;
+	}
 
 	private LocalDate publishDate;
 

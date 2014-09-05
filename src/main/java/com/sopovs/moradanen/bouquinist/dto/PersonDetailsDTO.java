@@ -7,10 +7,15 @@ public class PersonDetailsDTO {
 	private final String secondName;
 	private final String lastName;
 
-	public PersonDetailsDTO(Person person) {
+	private final long numberOfBooksAsAuthor;
+	private final long numberOfBooksAsEditor;
+
+	public PersonDetailsDTO(Person person, long numberOfBooksAsAuthor, long numberOfBooksAsEditor) {
 		firstName = person.getFirstName();
 		secondName = person.getSecondName();
 		lastName = person.getLastName();
+		this.numberOfBooksAsAuthor = numberOfBooksAsAuthor;
+		this.numberOfBooksAsEditor = numberOfBooksAsEditor;
 	}
 
 	public String getFirstName() {
@@ -23,5 +28,13 @@ public class PersonDetailsDTO {
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public long getNumberOfBooksAsAuthor() {
+		return numberOfBooksAsAuthor;
+	}
+
+	public long getNumberOfBooksAsEditor() {
+		return numberOfBooksAsEditor;
 	}
 }

@@ -55,7 +55,9 @@ public class BouquinistApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(BouquinistApplication.class, args);
+		SpringApplication app = new SpringApplication(BouquinistApplication.class);
+		app.setAdditionalProfiles("bootstrap");
+		app.run(args);
 	}
 
 }

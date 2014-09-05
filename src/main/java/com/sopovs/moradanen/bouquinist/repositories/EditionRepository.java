@@ -8,4 +8,6 @@ import com.sopovs.moradanen.bouquinist.domain.Edition;
 @Repository
 public interface EditionRepository extends JpaRepository<Edition, Long> {
 
+	long countByEditorId(Long editorId);
+
 }
