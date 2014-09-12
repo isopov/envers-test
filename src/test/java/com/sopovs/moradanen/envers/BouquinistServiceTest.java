@@ -74,4 +74,31 @@ public class BouquinistServiceTest extends AbstractTest {
 		assertEquals(0L, personDetails.getNumberOfBooksAsEditor());
 	}
 
+	@Test
+	public void testGetPersonDetailsAsAuthorAndEditor() {
+		Person person = new Person("John", "Amber", "Smith");
+		personRepository.save(person);
+		assertNotNull(person.getId());
+		{
+			Book book = new Book();
+			Edition edition = new Edition(book, null, person);
+			bookRepository.save(book);
+			book.setEditions(asList(edition));
+			editionRepository.save(edition);
+			bookRepository.save(book);
+		}
+		{
+			Book book = new Book();
+			Edition edition = new Edition(book, person, Collections.<Person> emptyList());
+			bookRepository.save(book);
+			book.setEditions(asList(edition));
+			editionRepository.save(edition);
+			bookRepository.save(book);
+		}
+		PersonDetailsDTO personDetails = bouquinistService.getPersonDetails(person.getId());
+		assertNotNull(personDetails);
+		assertEquals(1L, personDetails.getNumberOfBooksAsAuthor());
+		assertEquals(1L, personDetails.getNumberOfBooksAsEditor());
+	}
+
 }
